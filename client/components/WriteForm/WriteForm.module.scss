@@ -1,0 +1,11 @@
+.titleField {
+  &:before,
+  &:after {
+    display: none !important;
+  }
+
+  input {
+    font-size: 36px !important;
+    font-weight: 600;
+  }
+}

@@ -1,5 +1,6 @@
-import { TextField } from "@material-ui/core";
+import { Input } from "@material-ui/core";
 import React from "react";
+import styles from "./WriteForm.module.scss";
 
 interface WriteFormProps {
   title?: string;
@@ -8,7 +9,11 @@ interface WriteFormProps {
 export const WriteForm: React.FC<WriteFormProps> = ({ title }) => {
   return (
     <div>
-      <TextField placeholder="Heading" defaultValue={title} />
+      <Input
+        classes={{ root: styles.titleField }}
+        placeholder="Heading"
+        defaultValue={title}
+      />
     </div>
   );
 };
