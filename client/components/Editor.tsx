@@ -5,6 +5,7 @@ export const Editor: React.FC = () => {
   React.useEffect(() => {
     const editor = new EditorJS({
       holder: "editor",
+      placeholder: "Let's write an awesome story!",
     });
 
     return () => {
