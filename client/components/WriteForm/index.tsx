@@ -1,20 +1,18 @@
 import React from "react";
-import EditorJS from "@editorjs/editorjs";
+import dynamic from "next/dynamic";
 
-import styles from "./WriteForm.module.scss";
 import { Input } from "@material-ui/core";
+import styles from "./WriteForm.module.scss";
+
+const Editor = dynamic(() => import("../Editor").then((m) => m.Editor), {
+  ssr: false,
+});
 
 interface WriteFormProps {
   title?: string;
 }
 
 export const WriteForm: React.FC<WriteFormProps> = ({ title }) => {
-  React.useEffect(() => {
-    const editor = new EditorJS({
-      holder: "editor",
-    });
-  }, []);
-
   return (
     <div>
       <Input
@@ -22,7 +20,7 @@ export const WriteForm: React.FC<WriteFormProps> = ({ title }) => {
         placeholder="Heading"
         defaultValue={title}
       />
-      <div id="editor" />
+      <Editor />
     </div>
   );
 };
