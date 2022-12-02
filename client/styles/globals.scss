@@ -3,7 +3,7 @@ body {
   padding: 0;
   margin: 0;
   background-color: #f2f2f2 !important;
-  font-family: Roboto, 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: Roboto, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 a {
@@ -15,7 +15,7 @@ a {
   -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
   outline: none;
-  font-family: Roboto, 'Helvetica Neue', Helvetica, sans-serif;
+  font-family: Roboto, "Helvetica Neue", Helvetica, sans-serif;
 }
 
 .content {
@@ -37,4 +37,9 @@ a {
 .main-layout-white {
   background-color: white;
   height: 100vh;
+}
+
+.container {
+  margin: 0 auto;
+  width: 680px;
 }
