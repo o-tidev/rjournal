@@ -9,6 +9,7 @@ interface CommentItemProps {
   };
   text: string;
   post: {
+    id: number;
     title: string;
   };
 }
@@ -32,9 +33,11 @@ export const CommentItem: React.FC<CommentItemProps> = ({
         </Link>
       </div>
       <p className={styles.text}>{text}</p>
-      <a href="#">
-        <span className={styles.postTitle}>{post.title}</span>
-      </a>
+      <Link href={`/news/${user.id}`}>
+        <a>
+          <span className={styles.postTitle}>{post.title}</span>
+        </a>
+      </Link>
     </div>
   );
 };
