@@ -4,6 +4,7 @@ module.exports = {
       {
         id: 1,
         user: {
+          id: 1,
           fullname: "Вася Пупкин",
           avatarUrl:
             "https://leonardo.osnova.io/104b03b4-5173-fd9f-2af9-b458dddc4a23/-/scale_crop/108x108/-/format/webp/",
@@ -18,6 +19,7 @@ module.exports = {
       {
         id: 2,
         user: {
+          id: 1,
           fullname: "Вася Пупкин",
           avatarUrl:
             "https://leonardo.osnova.io/104b03b4-5173-fd9f-2af9-b458dddc4a23/-/scale_crop/108x108/-/format/webp/",
@@ -34,6 +36,7 @@ module.exports = {
       {
         id: 3,
         user: {
+          id: 1,
           fullname: "Вася Пупкин",
           avatarUrl:
             "https://leonardo.osnova.io/104b03b4-5173-fd9f-2af9-b458dddc4a23/-/scale_crop/108x108/-/format/webp/",
