@@ -49,7 +49,7 @@ export const Header: React.FC = () => {
 
         <Link href="/write">
           <Button variant="contained" className={styles.penButton}>
-            Новая запись
+            New post
           </Button>
         </Link>
       </div>
