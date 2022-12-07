@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-const LoginSchema = yup.object().shape({
+export const LoginSchema = yup.object().shape({
   email: yup.string().email("Incorrect email").required("Email is required"),
   password: yup
     .string()
