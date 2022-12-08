@@ -1,10 +1,11 @@
 import React from "react";
 
+import styles from "../AuthDialog.module.scss";
+
 import { Button, TextField } from "@material-ui/core";
 import { useForm, FormProvider } from "react-hook-form";
-import styles from "../AuthDialog.module.scss";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { LoginSchema } from "../../../utils/validations";
+import { RegisterSchema } from "../../../utils/validations";
 import { FormField } from "../../FormField";
 
 interface RegisterFormProps {
@@ -17,8 +18,8 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
   onOpenLogin,
 }) => {
   const form = useForm({
-    mode: "onSubmit",
-    resolver: yupResolver(LoginSchema),
+    mode: "onChange",
+    resolver: yupResolver(RegisterSchema),
   });
 
   const onSubmit = (data) => console.log(data);
@@ -34,15 +35,17 @@ export const RegisterForm: React.FC<RegisterFormProps> = ({
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <div className="d-flex align-center justify-between">
             <Button
+              disabled={!form.formState.isValid}
+              onClick={onOpenRegister}
               type="submit"
               color="primary"
               className="mt-20 mb-20"
               variant="contained"
             >
-              Log in
-            </Button>
-            <Button onClick={onOpenRegister} color="primary" variant="text">
               Register
+            </Button>
+            <Button onClick={onOpenLogin} color="primary" variant="text">
+              Log in
             </Button>
           </div>
         </form>
