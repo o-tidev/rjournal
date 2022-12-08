@@ -5,7 +5,7 @@ import { Button, TextField } from "@material-ui/core";
 import styles from "../AuthDialog.module.scss";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { LoginSchema } from "../../../utils/schemas/loginSchema";
+import { LoginSchema } from "../../../utils/validations";
 interface LoginFormProps {
   onOpenRegister: () => void;
 }
@@ -48,7 +48,12 @@ export const LoginForm: React.FC<LoginFormProps> = ({ onOpenRegister }) => {
           required
         />
         <div className="d-flex align-center justify-between">
-          <Button type="submit" color="primary" className="mt-20 mb-20" variant="contained">
+          <Button
+            type="submit"
+            color="primary"
+            className="mt-20 mb-20"
+            variant="contained"
+          >
             Log in
           </Button>
           <Button onClick={onOpenRegister} color="primary" variant="text">

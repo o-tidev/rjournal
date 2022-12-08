@@ -1,8 +1,11 @@
 import React from "react";
 
 import { Button, TextField } from "@material-ui/core";
-
+import { useForm, FormProvider } from "react-hook-form";
 import styles from "../AuthDialog.module.scss";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { LoginSchema } from "../../../utils/validations";
+import { FormField } from "../../FormField";
 
 interface RegisterFormProps {
   onOpenRegister: () => void;
@@ -10,45 +13,40 @@ interface RegisterFormProps {
 }
 
 export const RegisterForm: React.FC<RegisterFormProps> = ({
-  onOpenRegister, onOpenLogin
+  onOpenRegister,
+  onOpenLogin,
 }) => {
+  const form = useForm({
+    mode: "onSubmit",
+    resolver: yupResolver(LoginSchema),
+  });
+
+  const onSubmit = (data) => console.log(data);
+
+  console.log(form.formState.errors);
+
   return (
     <div>
-      {" "}
-      <form>
-        <TextField
-          className="mb-20"
-          size="small"
-          label="Full name"
-          variant="outlined"
-          fullWidth
-          required
-        />
-        <TextField
-          className="mb-20"
-          size="small"
-          label="Email"
-          variant="outlined"
-          fullWidth
-          required
-        />
-        <TextField
-          size="small"
-          label="Password"
-          variant="outlined"
-          fullWidth
-          type="password"
-          required
-        />
-        <div className="d-flex align-center justify-between">
-          <Button color="primary" className="mt-20 mb-20" variant="contained">
-            Register
-          </Button>
-          <Button onClick={onOpenLogin} color="primary" variant="text">
-            Log in
-          </Button>
-        </div>
-      </form>
+      <FormProvider {...form}>
+        <FormField name="fullname" label={"Name and surname"} />
+        <FormField name="email" label={"Email"} />
+        <FormField name="password" label={"Password"} />
+        <form onSubmit={form.handleSubmit(onSubmit)}>
+          <div className="d-flex align-center justify-between">
+            <Button
+              type="submit"
+              color="primary"
+              className="mt-20 mb-20"
+              variant="contained"
+            >
+              Log in
+            </Button>
+            <Button onClick={onOpenRegister} color="primary" variant="text">
+              Register
+            </Button>
+          </div>
+        </form>
+      </FormProvider>
     </div>
   );
 };
