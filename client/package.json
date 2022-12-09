@@ -13,6 +13,7 @@
     "@hookform/resolvers": "^2.9.10",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
+    "@nestjs/mapped-types": "*",
     "clsx": "^1.1.1",
     "macro-css": "^1.0.5",
     "next": "11.1.0",
