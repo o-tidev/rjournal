@@ -10,7 +10,6 @@ export class UserEntity {
   fullName: string;
 
   @Column()
-  @IsEmail()
   email: string;
 
   @Column({ nullable: true })
