@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { UserEntity } from './user/entities/user.entity';
 import { UserModule } from './user/user.module';
 import { PostModule } from './post/post.module';
+import { PostEntity } from './post/entities/post.entity';
 
 @Module({
   imports: [
@@ -15,7 +16,7 @@ import { PostModule } from './post/post.module';
       username: 'postgres',
       password: 'postgres',
       database: 'tjournal',
-      entities: [UserEntity],
+      entities: [UserEntity, PostEntity],
       synchronize: true,
     }),
     UserModule,
