@@ -6,6 +6,7 @@ import { UserEntity } from './user/entities/user.entity';
 import { UserModule } from './user/user.module';
 import { PostModule } from './post/post.module';
 import { PostEntity } from './post/entities/post.entity';
+import { CommentModule } from './comment/comment.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { PostEntity } from './post/entities/post.entity';
     }),
     UserModule,
     PostModule,
+    CommentModule,
   ],
   controllers: [AppController],
   providers: [AppService],

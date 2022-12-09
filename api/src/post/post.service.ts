@@ -29,7 +29,11 @@ export class PostService {
     return find;
   }
 
-  update(id: number, dto: UpdatePostDto) {
+  async update(id: number, dto: UpdatePostDto) {
+    const find = await this.repository.findOneBy({ id });
+    if (!find) {
+      throw new NotFoundException(`Post with id ${id} not found`);
+    }
     return this.repository.update(id, dto);
   }
 
