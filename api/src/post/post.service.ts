@@ -20,8 +20,8 @@ export class PostService {
     return this.repository.find();
   }
 
-  findOne(id: any) {
-    return this.repository.findOne(id);
+  findOne(id: number) {
+    return this.repository.findOneBy({ id });
   }
 
   update(id: number, dto: UpdatePostDto) {
