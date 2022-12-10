@@ -1,1 +1,4 @@
-export class CreateCommentDto {}
+export class CreateCommentDto {
+  text: string;
+  postId: number;
+}

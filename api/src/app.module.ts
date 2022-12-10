@@ -7,6 +7,7 @@ import { UserModule } from './user/user.module';
 import { PostModule } from './post/post.module';
 import { PostEntity } from './post/entities/post.entity';
 import { CommentModule } from './comment/comment.module';
+import { CommentEntity } from './comment/entities/comment.entity';
 
 @Module({
   imports: [
@@ -17,7 +18,7 @@ import { CommentModule } from './comment/comment.module';
       username: 'postgres',
       password: 'postgres',
       database: 'tjournal',
-      entities: [UserEntity, PostEntity],
+      entities: [UserEntity, PostEntity, CommentEntity],
       synchronize: true,
     }),
     UserModule,
