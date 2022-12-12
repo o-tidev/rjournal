@@ -1,5 +1,3 @@
-import { PostEntity } from 'src/post/entities/post.entity';
-import { UserEntity } from 'src/user/entities/user.entity';
 import {
   Entity,
   Column,
@@ -9,6 +7,8 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
+import { UserEntity } from '../../user/entities/user.entity';
+import { PostEntity } from '../../post/entities/post.entity';
 
 @Entity('comments')
 export class CommentEntity {
@@ -18,11 +18,15 @@ export class CommentEntity {
   @Column()
   text: string;
 
-  @ManyToOne(() => UserEntity)
+  @ManyToOne(() => UserEntity, {
+    nullable: false,
+  })
   @JoinColumn({ name: 'userId' })
   user: UserEntity;
 
-  @ManyToOne(() => PostEntity)
+  @ManyToOne(() => PostEntity, {
+    nullable: false,
+  })
   @JoinColumn({ name: 'postId' })
   post: UserEntity;
 
