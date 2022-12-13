@@ -5,6 +5,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   ManyToOne,
+  JoinTable,
   JoinColumn,
 } from 'typeorm';
 import { UserEntity } from '../../user/entities/user.entity';
@@ -28,7 +29,7 @@ export class CommentEntity {
     nullable: false,
   })
   @JoinColumn({ name: 'postId' })
-  post: UserEntity;
+  post: PostEntity;
 
   @CreateDateColumn({ type: 'timestamp' })
   createdAt: Date;
