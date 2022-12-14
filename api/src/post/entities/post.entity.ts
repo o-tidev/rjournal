@@ -5,7 +5,6 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
-import { UserEntity } from 'src/user/entities/user.entity';
 
 @Entity('posts')
 export class PostEntity {
