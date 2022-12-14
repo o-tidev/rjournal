@@ -20,12 +20,16 @@ export class PostService {
     return this.repository.find();
   }
 
-  findPopular() {
-    return this.repository.find({
-      order: {
-        views: 'DESC',
-      },
-    });
+  async findPopular() {
+    const queryBuilder = this.repository.createQueryBuilder('popular');
+    queryBuilder.orderBy('views', 'DESC');
+    queryBuilder.limit(10);
+    const [items, total] = await queryBuilder.getManyAndCount();
+
+    return {
+      items,
+      total,
+    };
   }
 
   async findOne(id: number) {
