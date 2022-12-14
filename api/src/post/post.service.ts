@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreatePostDto } from './dto/create-post.dto';
+import { SearchPostDto } from './dto/search-post.dto';
 import { UpdatePostDto } from './dto/update-post.dto';
 import { PostEntity } from './entities/post.entity';
 
@@ -25,9 +26,40 @@ export class PostService {
   }
 
   async findPopular() {
-    const queryBuilder = this.repository.createQueryBuilder('popular');
+    const queryBuilder = this.repository.createQueryBuilder();
     queryBuilder.orderBy('views', 'DESC');
     queryBuilder.limit(10);
+    const [items, total] = await queryBuilder.getManyAndCount();
+
+    return {
+      items,
+      total,
+    };
+  }
+
+  async search(dto: SearchPostDto) {
+    const queryBuilder = this.repository.createQueryBuilder('search');
+    queryBuilder.limit(dto.limit || 0);
+    queryBuilder.take(dto.take || 10);
+
+    if (dto.views) {
+      queryBuilder.orderBy('views', dto.views);
+    }
+
+    if (dto.body) {
+      queryBuilder.where(`search.body ILIKE %${dto.body}%`);
+    }
+
+    if (dto.title) {
+      queryBuilder.where(`search.title ILIKE :title`);
+    }
+
+    if (dto.tag) {
+      queryBuilder.where(`search.tag ILIKE %${dto.tag}%`);
+    }
+
+    queryBuilder.setParameter('title', `%${dto.title}%`);
+
     const [items, total] = await queryBuilder.getManyAndCount();
 
     return {
