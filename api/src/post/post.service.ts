@@ -47,18 +47,23 @@ export class PostService {
     }
 
     if (dto.body) {
-      queryBuilder.where(`search.body ILIKE %${dto.body}%`);
+      queryBuilder.andWhere(`search.body ILIKE :body`);
     }
 
     if (dto.title) {
-      queryBuilder.where(`search.title ILIKE :title`);
+      queryBuilder.andWhere(`search.title ILIKE :title`);
     }
 
     if (dto.tag) {
-      queryBuilder.where(`search.tag ILIKE %${dto.tag}%`);
+      queryBuilder.andWhere(`search.tag ILIKE :tag`);
     }
 
-    queryBuilder.setParameter('title', `%${dto.title}%`);
+    queryBuilder.setParameters({
+      title: `%${dto.title}%`,
+      body: `%${dto.body}%`,
+      tag: `%${dto.tag}%`,
+      views: dto.views || 'DESC',
+    });
 
     const [items, total] = await queryBuilder.getManyAndCount();
 
