@@ -54,14 +54,14 @@ export class PostService {
       queryBuilder.andWhere(`search.title ILIKE :title`);
     }
 
-    if (dto.tag) {
-      queryBuilder.andWhere(`search.tag ILIKE :tag`);
+    if (dto.tags) {
+      queryBuilder.andWhere(`search.tags ILIKE :tags`);
     }
 
     queryBuilder.setParameters({
       title: `%${dto.title}%`,
       body: `%${dto.body}%`,
-      tag: `%${dto.tag}%`,
+      tags: `%${dto.tags}%`,
       views: dto.views || 'DESC',
     });
 
