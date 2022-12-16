@@ -86,7 +86,12 @@ export class PostService {
     if (!find) {
       throw new NotFoundException(`Post with id ${id} not found`);
     }
-    return this.repository.update(id, dto);
+
+    this.repository.update(id, dto);
+
+    const updated = this.repository.findOneBy({ id });
+
+    return updated;
   }
 
   remove(id: number) {

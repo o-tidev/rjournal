@@ -5,7 +5,7 @@ export default function Settings() {
   return (
     <MainLayout hideComments>
       <Paper className="p-20" elevation={0}>
-        <Typography variant="h6">Основные настройки</Typography>
+        <Typography variant="h6">Main settings</Typography>
         <Divider className="mt-20 mb-30" />
         <form>
           <TextField
