@@ -17,7 +17,7 @@ export const SideComments = () => {
   return (
     <div className={clsx(styles.root, !visible && styles.rotated)}>
       <h3 onClick={toggleVisibility}>
-        Комментарии <ArrowRightIcon />
+        Comments <ArrowRightIcon />
       </h3>
       {visible &&
         data.comments.popular.map((obj) => (
