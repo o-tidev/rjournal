@@ -78,6 +78,9 @@ export class PostService {
     if (!find) {
       throw new NotFoundException(`Post with id ${id} not found`);
     }
+
+    this.repository.increment({ id }, 'views', 1);
+
     return find;
   }
 
@@ -88,10 +91,6 @@ export class PostService {
     }
 
     this.repository.update(id, dto);
-
-    const updated = this.repository.findOneBy({ id });
-
-    return updated;
   }
 
   remove(id: number) {
