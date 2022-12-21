@@ -55,7 +55,7 @@ export default function Profile() {
           <Post />
         </div>
         <Paper style={{ width: 300 }} className="p-20 mb-20" elevation={0}>
-          <b>Подписчики</b>
+          <b>Subscribers</b>
           <div className="d-flex mt-15">
             <Avatar
               className="mr-10"
