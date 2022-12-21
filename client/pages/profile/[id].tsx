@@ -40,14 +40,14 @@ export default function Profile() {
           <Typography style={{ fontWeight: 'bold', color: '#35AB66' }} className="mr-15">
             +208
           </Typography>
-          <Typography>2 подписчика</Typography>
+          <Typography>2 subscribers</Typography>
         </div>
-        <Typography>На проекте с 15 сен 2016</Typography>
+        <Typography>On the portal since 15 sep 2016</Typography>
 
         <Tabs className="mt-20" value={0} indicatorColor="primary" textColor="primary">
-          <Tab label="Статьи" />
-          <Tab label="Комментарии" />
-          <Tab label="Закладки" />
+          <Tab label="Posts" />
+          <Tab label="Comments" />
+          <Tab label="Saved" />
         </Tabs>
       </Paper>
       <div className="d-flex align-start">
