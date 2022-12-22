@@ -22,6 +22,10 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       throw new UnauthorizedException('No access to this resource');
     }
 
-    return data;
+    return {
+      id: user.id,
+      email: user.email,
+      fullName: user.fullName,
+    };
   }
 }
