@@ -12,7 +12,7 @@ export const PostComments: React.FC = () => {
     <Paper elevation={0} className="mt-40 p-30">
       <div className="container">
         <Typography variant="h6" className="mb-20">
-          42 комментария
+          42 comments
         </Typography>
         <Tabs
           onChange={(_, value) => setTab(value)}
