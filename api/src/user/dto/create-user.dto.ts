@@ -2,7 +2,7 @@ import { IsEmail, Length } from 'class-validator';
 
 export class CreateUserDto {
   @Length(3)
-  fullname: string;
+  fullName: string;
 
   @IsEmail(undefined, { message: 'Invalid email' })
   email: string;
