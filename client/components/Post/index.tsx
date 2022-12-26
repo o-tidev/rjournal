@@ -18,8 +18,9 @@ export const Post: React.FC = () => {
         </Link>
       </Typography>
       <Typography className="mt-10 mb-15">
-        Пока одни не могли соотнести размеры животного и окружения, другие
-        начали создавать апокалиптические сюжеты с котом в главной роли.
+        While others could not understand the corellation between size of the
+        environment and the cat, others started to invent scenarios about
+        fluffzila
       </Typography>
       <Image
         src="https://leonardo.osnova.io/a21ca5a9-d95b-560d-9a6f-9fa87eff7fcd/-/preview/600/-/format/webp/"
